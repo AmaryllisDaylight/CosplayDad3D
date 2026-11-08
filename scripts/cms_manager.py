@@ -1194,6 +1194,7 @@ def build_tracker_and_dashboard() -> None:
             <p class="brand-sub">Click <strong>✕</strong> to veto pics • Click <strong>★</strong> for #1 Hero • Mark <strong>Posted Today (IG / MW / Both)</strong> to record date &amp; archive</p>
         </div>
         <div class="top-controls">
+            <a href="concepts.html" class="btn" style="background:linear-gradient(135deg, #0284c7, #9333ea);color:#fff;border:none;font-weight:700;text-decoration:none;">🎯 Hero Prop Radar (5)</a>
             <span class="pill-stat" id="cloudSyncPill" style="color:#38bdf8;border-color:rgba(56,189,248,0.4);">☁️ Cloud Ready</span>
             <button class="btn" id="toggleVetoedBtn" onclick="toggleShowVetoed()">👁️ Show Vetoed Pics (0)</button>
             <button class="btn" onclick="resetReviewState()">↺ Reset Unsaved Clicks</button>
@@ -1204,6 +1205,7 @@ def build_tracker_and_dashboard() -> None:
 
     <section class="review-bar">
         <div class="filter-tabs">
+            <a href="concepts.html" class="tab-btn" style="text-decoration:none;border-color:rgba(168,85,247,0.5);color:#d8b4fe;background:rgba(168,85,247,0.1);">🎯 Hero Prop Radar (5)</a>
             <button class="tab-btn active" id="tab-ready" onclick="setFilterTab('ready')">📸 Active Queue (0)</button>
             <button class="tab-btn" id="tab-mw" onclick="setFilterTab('mw')">🟢 MakerWorld 3D Models (0)</button>
             <button class="tab-btn" id="tab-archived" onclick="setFilterTab('archived')">📦 Posted Archive (0)</button>

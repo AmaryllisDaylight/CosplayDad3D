@@ -1,0 +1,36 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Whitelist check: only sciopie@gmail.com and pixiepixeldesigns@gmail.com
+    function isWhitelisted() {
+      return request.auth != null && (
+        request.auth.token.email in [
+          "sciopie@gmail.com",
+          "pixiepixeldesigns@gmail.com"
+        ]
+      );
+    }
+
+    match /stories/{storyId} {
+      allow read, write: if isWhitelisted();
+
+      match /{allChildren=**} {
+        allow read, write: if isWhitelisted();
+      }
+    }
+
+    match /secrets/{secretId} {
+      allow read, write: if isWhitelisted();
+    }
+
+    // CosplayDad3D Dashboard review state sync (non-sensitive slide/caption state)
+    match /cosplaydad_sync/{docId} {
+      allow read, write: if true;
+    }
+
+    // Default: block all unauthorized access
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

@@ -1,0 +1,60 @@
+# @cosplaydad3d Automated Content Management System Rules (.antigravityrules)
+
+## Core Identity & Constraints
+- **Brand**: `@cosplaydad3d` (Instagram & MakerWorld)
+- **Signature Armor Line**: **EmberCore** / **EmberCore Armor System** (`EmberCore_` prefix)
+- **Google Drive Root**: `G:\My Drive\!cosplaydad3d`
+- **Workspace Root**: `c:\P\CosplayDad3D`
+- **ZERO External AI / Vision APIs**: NEVER use external paid LLM APIs or local Ollama vision calls in scripts. **YOU (Antigravity)** are the vision inspector, copywriter, and file organizer whenever triggered.
+- **ZERO `.HEIC` Retention Policy**: Never keep `.HEIC` files. Whenever `.HEIC` files are dropped in `01_Inbox_Drop/` (or swept from `G:\My Drive`), convert them to high-res `.jpg` and **immediately delete the `.HEIC` file**. Store only `.jpg` and `.mp4`/video files in `99_Raw_Originals_Backup/`.
+
+---
+
+## Signature Brand System: The "EmberCore" Armor Series
+
+### 1. What "EmberCore" Means
+- **Visual & Structural Style**: 3D-printed cosplay armor featuring raised metallic scrollwork/filigree shells over recessed diamond lattices or pierced cutouts.
+- **Two-Tier Application**:
+  1. **Standard / Painted Version**: The recessed lattice/core sits in deep shadow underneath bright metallic Rub 'n Buff or dry-brushed filigree highlights.
+  2. **LED / Illuminated Version**: The outer filigree shell sits over an internal diffused LED core (such as upward-pulsing fire, ember, or arcane lighting effects shining through the scrollwork).
+
+### 2. MakerWorld Listing Rules for EmberCore Models
+- **Title Format**: `[Item Name] - Cosplay Armor [EmberCore Series]`
+  - *Example*: `Fantasy Mage Filigree Bracer / Forearm Gauntlet - Cosplay Armor [EmberCore Series]`
+- **Description Boilerplate**: Always include the **"About the EmberCore Series"** bullet explaining that the piece is designed with high-relief scrollwork over a recessed lattice core—engineered to catch deep shadow washes cleanly or house diffused internal LED lighting.
+- **Required Tags**: Always include `embercore` alongside standard high-traffic tags (`cosplay`, `armor`, `bracer`, `gauntlet`, `filigree`, `fantasy`, `wearable`, `rpg`).
+- **Upload Checklist Reminder**: Always verify/remind the user to include:
+  1. Decimated `.stl` (target `200k–350k` triangles, max `500k`), prefixed `EmberCore_` (e.g., `EmberCore_Mage_Bracer_v1.stl`) in `05_Final_STL_Under500k/`.
+  2. Sliced Bambu Studio `.3mf` Print Profile (`EmberCore_Mage_Bracer_Profile.3mf`) in `06_Bambu_3MF_Profile/`.
+  3. At least one real-world photo of the physical print as the **Cover Image** in `07_Real_Print_Photos/`.
+  4. A clean **Blender MatCap clay render** as a secondary gallery image in `07_Real_Print_Photos/`.
+
+### 3. Instagram (`@cosplaydad3d`) Content & Hashtag Rules
+- **Captions**: Keep captions short, punchy, and human (1–2 sentences)—a dad/engineer building next-level cosplay armor, convention gear, and stage props with his daughters. Refer to original filigree/lattice armor builds as part of our custom **EmberCore Armor** series.
+- **Hashtag Block**: For any post featuring EmberCore pieces, automatically append `#EmberCore` and `#EmberCoreArmor` alongside core maker tags (`#cosplaydad3d`, `#3dprintedarmor`, `#bambulab`, `#cosplaywip`, `#foamsmith`, `#makerdad`).
+
+### 4. File & Folder Naming Convention (`!cosplaydad3d`)
+- Prefix project folders and final export files for this armor line with `EmberCore_` (e.g., `MW_01_EmberCore_Mage_Filigree_Bracer/`, `EmberCore_Mage_Bracer_v1.stl`, `EmberCore_Mage_Bracer_Profile.3mf`) so they stay cleanly separated from third-party prints (like `@sarwtin` or `@ogi3d` files) and non-armor stage props.
+
+---
+
+## Directory Architecture (`G:\My Drive\!cosplaydad3d`)
+1. **`01_Inbox_Drop/`** — Drop zone for raw photos, videos, AI paint concepts, 4-pose sheets, `.stl`s, `.blend`s, and `.3mf` files.
+2. **`02_Ready_To_Post/`** — Active Instagram/Social batches (`Batch_XX_...`).
+3. **`03_Posted_Archive/`** — Archived social batches (`Batch_XX_...`) with recorded posted dates and platforms (`Instagram Only`, `MakerWorld Only`, or `Both`).
+4. **`04_MakerWorld_Models/`** — Dedicated 7-Stage Product Library for original 3D printable designs (`MW_01_EmberCore_...`):
+   - `01_4Pose_Turnarounds/` — Orthographic 4-view images uploaded to Tripo AI.
+   - `02_Paint_And_Finish_Concepts/` — AI-generated paint-job styling, colorways, lighting mockups, and concept videos.
+   - `03_Tripo_Raw_90MB/` — Raw ~90MB high-density `.stl` / `.glb` straight from Tripo (`> 500,000` triangles — never upload to MakerWorld).
+   - `04_Blender_Working/` — Both `.blend` files (`Sculpted_HighPoly.blend` and `Decimated_500k.blend`).
+   - `05_Final_STL_Under500k/` — ✅ **UPLOAD THIS STL**: Decimated (`200k–350k` target, `<500k` max) `EmberCore_*_v1.stl`.
+   - `06_Bambu_3MF_Profile/` — ✅ **UPLOAD THIS 3MF**: Sliced Bambu Studio `EmberCore_*_Profile.3mf`.
+   - `07_Real_Print_Photos/` — ✅ **UPLOAD THESE PICS**: Physical print Cover Image + Blender MatCap clay render.
+   - `MODEL_LISTING.md` — Ready-to-copy MakerWorld Title, Tags, Checklist & Description.
+5. **`05_Concept_Vault_And_Lookbooks/`** — Bulk organizer for AI concept art, paint-job lookbooks, and video ideas (`01_Unsorted_Concept_Drop/`, `02_EmberCore_Paint_And_Glow_Concepts/`, `03_Weapon_And_Prop_Concepts/`, `04_4Pose_Character_Sheets/`).
+6. **`99_Raw_Originals_Backup/`** — Permanent `.jpg` and video backup (plus `_Vetoed_Archive/`).
+
+## Shortcut Commands (Always Active)
+- **`"do it"`** *(or **`"process inbox"`**)*: Sweep & convert `.HEIC` -> `.jpg` (delete `.HEIC`), resize videos via `ffmpeg`, visually inspect new media, auto-route `.stl` (`>500k` vs `<=500k`) / `.blend` / `.3mf` files and AI paint concepts into `02_Ready_To_Post/`, `04_MakerWorld_Models/`, or `05_Concept_Vault_And_Lookbooks/`, and rebuild `TRACKER.md` + `CosplayDad_Dashboard.html`.
+- **`"clean up"`** *(or **`"apply review"`**)*: Sync all browser vetoes (`✕`), `#1 Hero` changes (`★`), caption edits, and **Posted Today & Archive** clicks to disk (`python c:\P\CosplayDad3D\scripts\cms_manager.py apply-review`).
+- **`"posted Batch XX [ig|mw|both]"`**: Stamp today's date + platform and move `Batch_XX` to `03_Posted_Archive/`.

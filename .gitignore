@@ -1,0 +1,24 @@
+# Python & caches
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+.env
+
+# Large 3D / Video binaries (stored in Google Drive !cosplaydad3d)
+*.stl
+*.blend
+*.blend1
+*.3mf
+*.obj
+*.fbx
+*.glb
+*.mov
+*.mp4
+*.heic
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini

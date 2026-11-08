@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CosplayDad3D Studio — Glass Image & Tripo 3D Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <!-- Ambient Background Orbs for Glassmorphism Depth -->
+  <div class="ambient-bg">
+    <div class="orb orb-cyan"></div>
+    <div class="orb orb-violet"></div>
+    <div class="orb orb-gold"></div>
+    <div class="orb orb-blue"></div>
+    <div class="noise-overlay"></div>
+  </div>
+
+  <!-- Drag & Drop Overlay -->
+  <div id="drop-overlay" class="drop-overlay hidden">
+    <div class="drop-box glass-panel">
+      <div class="drop-icon">📥</div>
+      <h2>Drop Images to Auto-Convert to .JPG</h2>
+      <p>Files will be converted to high-quality JPEG (95%) and saved into the active folder.</p>
+    </div>
+  </div>
+
+  <!-- Top Glass Header Bar -->
+  <header class="top-header glass-panel">
+    <div class="brand-area">
+      <div class="brand-logo">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+          <polyline points="2 17 12 22 22 17"></polyline>
+          <polyline points="2 12 12 17 22 12"></polyline>
+        </svg>
+      </div>
+      <div>
+        <h1 class="brand-title">CosplayDad3D <span class="brand-badge">GLASS STUDIO</span></h1>
+        <p class="brand-sub">Image Ingest • Auto-JPG • Tripo 3D to .STL Pipeline</p>
+      </div>
+    </div>
+
+    <!-- Path Navigation Bar -->
+    <div class="path-bar-container">
+      <button id="btn-up-dir" class="icon-btn glass-btn" title="Go Up One Folder">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <path d="M15 18l-6-6 6-6"/>
+        </svg>
+      </button>
+      <div class="path-input-wrapper">
+        <span class="folder-icon">📂</span>
+        <input
+          type="text"
+          id="folder-path-input"
+          class="path-input"
+          value="{{ initial_folder }}"
+          placeholder="Paste or enter folder path (e.g. C:\P\Gem-image-jpg\filigree staff\05_Elongated_LED_Tubes)"
+        />
+        <button id="btn-go-path" class="glass-btn btn-sm">Load</button>
+      </div>
+      <button id="btn-native-browse" class="glass-btn" title="Open Windows Folder Picker">
+        <span>Browse...</span>
+      </button>
+      <button id="btn-open-explorer" class="icon-btn glass-btn" title="Open Current Folder in Windows Explorer">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+          <polyline points="15 3 21 3 21 9"></polyline>
+          <line x1="10" y1="14" x2="21" y2="3"></line>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Right Header Status / Tripo API Pill -->
+    <div class="header-status">
+      <div id="tripo-balance-pill" class="balance-pill glass-pill" title="Click to refresh Tripo API balance">
+        <span class="status-dot online"></span>
+        <span id="balance-text">Tripo API: Checking...</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main 3-Column Glass Workspace -->
+  <main class="workspace-grid">
+    <!-- Left Column: Bookmarks & Subfolders -->
+    <aside class="sidebar-left glass-panel">
+      <div class="panel-section">
+        <div class="section-header">
+          <h3>PROJECT FOLDERS</h3>
+          <span class="section-hint">Quick Jump</span>
+        </div>
+        <div id="bookmarks-list" class="bookmarks-list">
+          <!-- Populated dynamically -->
+        </div>
+      </div>
+
+      <div class="panel-section subfolders-section">
+        <div class="section-header">
+          <h3>SUBFOLDERS</h3>
+          <span id="subfolder-count" class="count-pill">0</span>
+        </div>
+        <div id="subfolders-list" class="subfolders-list">
+          <!-- Populated dynamically -->
+        </div>
+      </div>
+
+      <div class="panel-section ingest-section">
+        <div class="section-header">
+          <h3>INGEST & AUTO-JPG</h3>
+        </div>
+        <label class="toggle-row">
+          <input type="checkbox" id="chk-auto-convert" checked />
+          <span class="toggle-label">Auto-convert folder to <code>.jpg</code></span>
+        </label>
+        <button id="btn-convert-folder" class="glass-btn full-width action-secondary">
+          <span>⚡ Convert Non-JPGs Now</span>
+          <span id="unconverted-badge" class="badge-warn hidden">0</span>
+        </button>
+        <button id="btn-pull-downloads" class="glass-btn full-width action-accent" title="Pull latest images from Downloads, convert to .jpg, and save to current folder">
+          <span>📥 Pull Latest from Downloads</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Center Column: Image Gallery & Filter Bar -->
+    <section class="gallery-center glass-panel">
+      <!-- Gallery Toolbar -->
+      <div class="gallery-toolbar">
+        <div class="toolbar-left">
+          <h2 id="current-folder-title" class="folder-title">Loading...</h2>
+          <span id="image-count-badge" class="count-pill">0 images</span>
+        </div>
+
+        <div class="toolbar-controls">
+          <div class="search-box">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="search-input" placeholder="Filter images (e.g. helix, cuirass, front)..." />
+          </div>
+
+          <select id="sort-select" class="glass-select">
+            <option value="name-asc">Sort: Name (A → Z)</option>
+            <option value="newest">Sort: Newest First</option>
+            <option value="oldest">Sort: Oldest First</option>
+            <option value="size-desc">Sort: Size (Largest)</option>
+          </select>
+
+          <div class="zoom-slider-wrap" title="Thumbnail Card Size">
+            <span>🔍</span>
+            <input type="range" id="grid-size-slider" min="150" max="340" value="215" />
+          </div>
+
+          <div class="selection-btns">
+            <button id="btn-select-all" class="glass-btn btn-xs">Select All</button>
+            <button id="btn-clear-selection" class="glass-btn btn-xs">Clear</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Instruction Banner depending on Mode -->
+      <div id="mode-helper-banner" class="mode-helper-banner">
+        <span id="mode-helper-text">
+          <strong>1-Image Mode:</strong> Click cards to select one or more images for Tripo 3D generation. Click <strong>🔍 Inspect</strong> (or double-click) to zoom &amp; examine details.
+        </span>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div id="gallery-grid" class="gallery-grid">
+        <!-- Populated dynamically -->
+      </div>
+    </section>
+
+    <!-- Right Column: Tripo 3D Command Dock & Job Queue -->
+    <aside class="sidebar-right glass-panel">
+      <div class="dock-header">
+        <h3>TRIPO 3D GENERATOR</h3>
+        <span class="dock-subtitle">Image → 3D Mesh → .STL</span>
+      </div>
+
+      <!-- Mode Switcher: 1-Image vs 4-View -->
+      <div class="mode-tabs">
+        <button id="tab-single" class="mode-tab active" data-mode="single">
+          <span class="tab-icon">🖼️</span>
+          <span>1-Image Mode</span>
+        </button>
+        <button id="tab-multiview" class="mode-tab" data-mode="multiview">
+          <span class="tab-icon">🧭</span>
+          <span>4-View Set (F/B/L/R)</span>
+        </button>
+      </div>
+
+      <!-- Panel A: 1-Image Selection Summary -->
+      <div id="panel-single-mode" class="mode-panel">
+        <div class="selection-header">
+          <span>Selected Images (<strong id="selected-count">0</strong>)</span>
+          <button id="btn-clear-single" class="link-btn">Reset</button>
+        </div>
+        <div id="single-selection-preview" class="single-selection-preview">
+          <div class="empty-slot-hint">
+            Click one or more images in the gallery to queue them for 3D generation.
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel B: 4-View Orthographic Slots -->
+      <div id="panel-multiview-mode" class="mode-panel hidden">
+        <div class="selection-header">
+          <span>4-View Orthographic Slots</span>
+          <div class="slot-header-actions">
+            <button id="btn-autofill-4view" class="glass-btn btn-xs" title="Auto-detect front, back, left, right from selected or matching filenames">
+              ✨ Auto-Fill
+            </button>
+            <button id="btn-clear-4view" class="link-btn">Clear</button>
+          </div>
+        </div>
+
+        <div class="four-view-grid">
+          <div class="view-slot active-target" data-slot="front" id="slot-front">
+            <div class="slot-badge required">FRONT (0°) *</div>
+            <div class="slot-body" id="slot-body-front">
+              <span class="slot-placeholder">Click to target, then click an image</span>
+            </div>
+            <button class="slot-clear hidden" data-clear="front" title="Remove">×</button>
+          </div>
+
+          <div class="view-slot" data-slot="back" id="slot-back">
+            <div class="slot-badge">BACK (180°)</div>
+            <div class="slot-body" id="slot-body-back">
+              <span class="slot-placeholder">Click to target</span>
+            </div>
+            <button class="slot-clear hidden" data-clear="back" title="Remove">×</button>
+          </div>
+
+          <div class="view-slot" data-slot="left" id="slot-left">
+            <div class="slot-badge">LEFT (-90°)</div>
+            <div class="slot-body" id="slot-body-left">
+              <span class="slot-placeholder">Click to target</span>
+            </div>
+            <button class="slot-clear hidden" data-clear="left" title="Remove">×</button>
+          </div>
+
+          <div class="view-slot" data-slot="right" id="slot-right">
+            <div class="slot-badge">RIGHT (90°)</div>
+            <div class="slot-body" id="slot-body-right">
+              <span class="slot-placeholder">Click to target</span>
+            </div>
+            <button class="slot-clear hidden" data-clear="right" title="Remove">×</button>
+          </div>
+        </div>
+
+        <div class="custom-title-row">
+          <label for="multiview-title-input">Output STL Name:</label>
+          <input type="text" id="multiview-title-input" class="glass-input" placeholder="e.g. cuirass_skull_smooth" />
+        </div>
+      </div>
+
+      <!-- Tripo Mesh & STL Options -->
+      <div class="tripo-options-box">
+        <div class="opt-row">
+          <label>AI Model</label>
+          <select id="tripo-model-select" class="glass-select">
+            <option value="v3.1-20260211">H3.1 (v3.1 — Best 3D Print Detail)</option>
+            <option value="P2-20260801">P2 (High-Precision Hard Surface)</option>
+            <option value="v3.0-20250812">H3.0 (Stable v3.0)</option>
+          </select>
+        </div>
+
+        <div class="opt-row two-col">
+          <div>
+            <label>Mesh Detail</label>
+            <select id="tripo-quality-select" class="glass-select">
+              <option value="detailed">Ultra Detailed (2M Tris)</option>
+              <option value="standard">Standard (1.5M Tris)</option>
+            </select>
+          </div>
+          <div>
+            <label>Export Format</label>
+            <select id="tripo-format-select" class="glass-select">
+              <option value="STL">.STL (3D Print)</option>
+              <option value="3MF">.3MF (Bambu)</option>
+              <option value="OBJ">.OBJ (Mesh)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="opt-toggles">
+          <label class="toggle-row">
+            <input type="checkbox" id="chk-tripo-texture" />
+            <span class="toggle-label">Generate PBR Texture <small>(Uncheck for faster pure STL)</small></span>
+          </label>
+          <label class="toggle-row">
+            <input type="checkbox" id="chk-tripo-flatten" />
+            <span class="toggle-label">Flatten Bottom <small>(For flat bed printing)</small></span>
+          </label>
+        </div>
+
+        <button id="btn-stage-tripo-web" class="btn-primary-glow full-width" title="Copies image(s) to clipboard + Tripo_Web_Staging folder and opens studio.tripo3d.ai to use your 3,000 monthly Web Studio credits">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+            <polyline points="15 3 21 3 21 9"></polyline>
+            <line x1="10" y1="14" x2="21" y2="3"></line>
+          </svg>
+          <span id="btn-stage-tripo-web-text">Stage &amp; Open Tripo Web (3000 Cr Sub)</span>
+        </button>
+
+        <button id="btn-send-tripo" class="glass-btn full-width action-secondary" style="margin-top: 8px;" title="Direct API generation (requires separate API wallet credits at platform.tripo3d.ai/billing)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+            <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+            <line x1="12" y1="22.08" x2="12" y2="12"></line>
+          </svg>
+          <span id="btn-send-tripo-text">Direct API → Generate .STL ($0.20–$0.40)</span>
+        </button>
+      </div>
+
+      <!-- Active & Completed Tripo Jobs Queue -->
+      <div class="jobs-section">
+        <div class="section-header">
+          <h3>3D GENERATION QUEUE</h3>
+          <span id="jobs-count-pill" class="count-pill">0</span>
+        </div>
+        <div id="jobs-list" class="jobs-list">
+          <!-- Populated dynamically -->
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <!-- Full-Screen Glass Lightbox Inspector Modal -->
+  <div id="inspector-modal" class="inspector-modal hidden">
+    <div class="inspector-backdrop" id="inspector-backdrop"></div>
+    <div class="inspector-content glass-panel">
+      <!-- Inspector Top Bar -->
+      <div class="inspector-topbar">
+        <div class="inspector-info">
+          <h3 id="inspector-filename">image.jpg</h3>
+          <span id="inspector-meta" class="inspector-meta-pill">1024 × 1024 • 450 KB</span>
+        </div>
+
+        <div class="inspector-zoom-controls">
+          <button id="btn-zoom-out" class="glass-btn btn-xs" title="Zoom Out">−</button>
+          <span id="zoom-level-text" class="zoom-readout">100%</span>
+          <button id="btn-zoom-in" class="glass-btn btn-xs" title="Zoom In">+</button>
+          <button id="btn-zoom-reset" class="glass-btn btn-xs">Reset</button>
+        </div>
+
+        <div class="inspector-actions">
+          <button id="btn-inspect-select-single" class="glass-btn btn-sm action-accent">
+            ✓ Select for Tripo
+          </button>
+          <div class="assign-group">
+            <span class="assign-label">4-View:</span>
+            <button class="glass-btn btn-xs assign-slot-btn" data-assign="front">Front</button>
+            <button class="glass-btn btn-xs assign-slot-btn" data-assign="back">Back</button>
+            <button class="glass-btn btn-xs assign-slot-btn" data-assign="left">Left</button>
+            <button class="glass-btn btn-xs assign-slot-btn" data-assign="right">Right</button>
+          </div>
+          <button id="btn-inspect-rename" class="glass-btn btn-xs" title="Rename File">✏️ Rename</button>
+          <button id="btn-inspect-explorer" class="glass-btn btn-xs" title="Reveal in File Explorer">📂 Explorer</button>
+          <button id="btn-inspector-close" class="icon-btn glass-btn close-btn" title="Close (Esc)">✕</button>
+        </div>
+      </div>
+
+      <!-- Inspector Canvas Viewport -->
+      <div class="inspector-viewport" id="inspector-viewport">
+        <button id="btn-inspect-prev" class="nav-arrow nav-prev glass-btn" title="Previous Image (←)">‹</button>
+        <div id="inspector-img-container" class="inspector-img-container">
+          <img id="inspector-img" src="" alt="Inspect Preview" draggable="false" />
+        </div>
+        <button id="btn-inspect-next" class="nav-arrow nav-next glass-btn" title="Next Image (→)">›</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

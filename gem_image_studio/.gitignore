@@ -1,0 +1,10 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+Tripo_Web_Staging/
+output_stl/*.stl
+output_stl/*.glb
+output_stl/*.3mf
+output_stl/*.obj
+Cosplay Portfolio & Builds/03_Raw_HEIC_and_Drive_Scripts/heic/

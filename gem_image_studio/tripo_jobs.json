@@ -1,0 +1,24 @@
+[
+  {
+    "id": "04666005",
+    "title": "tall_tube_05_quad_tier_scales",
+    "mode": "single",
+    "model": "v3.1-20260211",
+    "geometry_quality": "detailed",
+    "texture": false,
+    "flatten_bottom": true,
+    "export_format": "STL",
+    "source_folder": "c:\\P\\Gem-image-jpg\\filigree staff\\05_Elongated_LED_Tubes",
+    "images": {
+      "front": "c:\\P\\Gem-image-jpg\\filigree staff\\05_Elongated_LED_Tubes\\tall_tube_05_quad_tier_scales.jpg"
+    },
+    "status": "failed",
+    "status_label": "Failed",
+    "progress": 5,
+    "created_at": "2026-11-08T09:32:02",
+    "updated_at": "2026-11-08T09:32:04",
+    "stl_path": null,
+    "glb_path": null,
+    "error": "You don't have enough credit to create this task"
+  }
+]

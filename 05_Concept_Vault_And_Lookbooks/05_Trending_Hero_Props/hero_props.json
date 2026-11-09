@@ -13,7 +13,9 @@
     "tripo_prompt": "Orthographic front view, symmetrical, chunky 3D-printable geometry, deep recessed details, solid manifold structure, isolated on a pure white background, no thin floating wires, imposing Gothic knight helmet faceplate, completely solid pitch-black featureless faceted visor, surrounded by angular dark steel armor plating, filigree Nordic knotwork vents along jawline, cold steel matte grey clay shader, high contrast, clean hard-surface bevels.",
     "src_image": "C:\\Users\\TUFGaming\\.gemini\\antigravity\\brain\\7dfd0d62-e9cd-45c9-8545-2606b89974e3\\capitano_void_visor_1794178562876.jpg",
     "filename": "01_capitano_void_visor.jpg",
-    "web_url": "concepts/01_capitano_void_visor.jpg"
+    "web_url": "concepts/01_capitano_void_visor.jpg",
+    "search_query": "Capitano face mask helmet Genshin Impact cosplay reference official art",
+    "ip_risk_level": "Safe (HoYoverse Fan Policy \u2014 Up to 200 Units)"
   },
   {
     "id": "ambessa_knuckle_katar",
@@ -29,7 +31,9 @@
     "tripo_prompt": "Orthographic front view, symmetrical, chunky 3D-printable geometry, deep recessed details, solid manifold structure, isolated on a pure white background, no thin floating wires, brutalist Roman-Noxian knuckle katar dagger, heavy curved broad blade with deep central blood fuller, ornate stylized snarling wolf head forming the hilt and knuckle guard, thick solid finger grips, untextured matte neutral grey 3D clay resin model, razor-sharp bevels.",
     "src_image": "C:\\Users\\TUFGaming\\.gemini\\antigravity\\brain\\7dfd0d62-e9cd-45c9-8545-2606b89974e3\\ambessa_knuckle_katar_1794178576456.jpg",
     "filename": "02_ambessa_knuckle_katar.jpg",
-    "web_url": "concepts/02_ambessa_knuckle_katar.jpg"
+    "web_url": "concepts/02_ambessa_knuckle_katar.jpg",
+    "search_query": "Ambessa Medarda knuckle dagger katar Arcane Season 2 reference",
+    "ip_risk_level": "Safe (Riot Games Legal Jibber Jabber Policy)"
   },
   {
     "id": "messmer_kindling_relic",
@@ -45,7 +49,9 @@
     "tripo_prompt": "Orthographic front view, symmetrical, chunky 3D-printable geometry, deep recessed details, solid manifold structure, isolated on a pure white background, no thin floating wires, mystical dark fantasy hollow spherical relic, intricate twin coiled winged serpents wrapped around a central perforated openwork iris cage, open cutouts showing hollow interior, charred bark and reptile scale relief texture, matte neutral grey 3D clay print model.",
     "src_image": "C:\\Users\\TUFGaming\\.gemini\\antigravity\\brain\\7dfd0d62-e9cd-45c9-8545-2606b89974e3\\messmer_kindling_1794178588254.jpg",
     "filename": "03_messmer_kindling_relic.jpg",
-    "web_url": "concepts/03_messmer_kindling_relic.jpg"
+    "web_url": "concepts/03_messmer_kindling_relic.jpg",
+    "search_query": "Messmer kindling flame serpent orb Elden Ring DLC reference",
+    "ip_risk_level": "Safe (FromSoftware Community Tolerant)"
   },
   {
     "id": "quincy_bankai_medallion",
@@ -61,7 +67,9 @@
     "tripo_prompt": "Orthographic front view, symmetrical, chunky 3D-printable geometry, deep recessed details, solid manifold structure, isolated on a pure white background, no thin floating wires, heavy circular Gothic talisman medallion, embossed sharp five-pointed Quincy sun-cross emblem in the center, encircled by Germanic scrollwork filigree and recessed runic border ring, hollowed center ring for lighting, matte neutral grey 3D clay finish.",
     "src_image": "C:\\Users\\TUFGaming\\.gemini\\antigravity\\brain\\7dfd0d62-e9cd-45c9-8545-2606b89974e3\\quincy_bankai_medallion_1794178603943.jpg",
     "filename": "04_quincy_bankai_medallion.jpg",
-    "web_url": "concepts/04_quincy_bankai_medallion.jpg"
+    "web_url": "concepts/04_quincy_bankai_medallion.jpg",
+    "search_query": "Quincy medallion Bankai stealing device Bleach TYBW reference",
+    "ip_risk_level": "Safe (Anime Production Committee / Shielded Title)"
   },
   {
     "id": "sunday_seraph_halo",
@@ -77,6 +85,98 @@
     "tripo_prompt": "Orthographic front view, symmetrical, chunky 3D-printable geometry, deep recessed details, solid manifold structure, isolated on a pure white background, no thin floating wires, angelic celestial headpiece halo, sharp pointed thorn ring framing layered feathered seraph wings and a sacred eye medallion center, thick self-supporting structural ribs, matte grey 3D clay shader, crisp filigree relief.",
     "src_image": "C:\\Users\\TUFGaming\\.gemini\\antigravity\\brain\\7dfd0d62-e9cd-45c9-8545-2606b89974e3\\sunday_seraph_halo_1794178621352.jpg",
     "filename": "05_sunday_seraph_halo.jpg",
-    "web_url": "concepts/05_sunday_seraph_halo.jpg"
+    "web_url": "concepts/05_sunday_seraph_halo.jpg",
+    "search_query": "Sunday Honkai Star Rail seraph halo wing collar official art reference",
+    "ip_risk_level": "Safe (HoYoverse Fan Policy \u2014 Up to 200 Units)"
+  },
+  {
+    "id": "mavuika_solar_flame_brooch",
+    "title": "Sunfire Matriarch Solar Crest Brooch & Hairpin \u2014 Wearable Prop",
+    "ip_source": "Genshin Impact (Natlan 5.3)",
+    "hero_name": "Mavuika (Pyro Archon)",
+    "status": "pending",
+    "saturation": "\ud83d\udfe2 0 Wearable Prop Models on MakerWorld",
+    "plates": "1 Plate (Solar Crest Hairpin + Magnetic Brooch Core)",
+    "print_strategy": "Prints flat on Bambu textured PEI plate with 0.16mm layer height; central sunburst ring keyed to accept a 10mm round neodymium magnet or hair comb clip.",
+    "paint_recipe": "Gloss black base -> Aztec Gold Rub 'n Buff on outer solar feather blades -> incandescent fiery orange/yellow acrylic gradient on central sunburst disc.",
+    "reel_hook": "Mavuika is about to break Genshin in version 5.3, so I printed her solar fire brooch before the banner even dropped.",
+    "tripo_prompt": "Orthographic front view, symmetrical, chunky 3D-printable geometry, deep recessed details, solid manifold structure, isolated on a pure white background, no thin floating wires, ornate solar flame hair comb and brooch, radiating sharp angular sun feather blades around a central circular sunburst disk with deep geometric cutouts and an incised solar rune core, untextured matte neutral grey 3D clay resin model, razor-sharp bevels.",
+    "src_image": "C:\\Users\\TUFGaming\\.gemini\\antigravity\\brain\\7dfd0d62-e9cd-45c9-8545-2606b89974e3\\mavuika_solar_flame_brooch_1794184173915.jpg",
+    "filename": "06_mavuika_solar_flame_brooch.jpg",
+    "web_url": "concepts/06_mavuika_solar_flame_brooch.jpg",
+    "search_query": "Mavuika Pyro Archon hair clip brooch Genshin Impact official art reference",
+    "ip_risk_level": "Safe (HoYoverse Fan Merch Policy \u2014 Up to 200 Units)"
+  },
+  {
+    "id": "miyabi_kitsune_void_mask",
+    "title": "Section 6 Void Hunter Kitsune Half-Mask \u2014 Cyber Fox Cosplay Mask",
+    "ip_source": "Zenless Zone Zero (ZZZ Version 1.4)",
+    "hero_name": "Hoshimi Miyabi",
+    "status": "pending",
+    "saturation": "\ud83d\udfe2 0 Dedicated Mask Models on MakerWorld",
+    "plates": "1 Plate (Angled 45\u00b0 Upright on Bambu Plate)",
+    "print_strategy": "Oriented 45\u00b0 upright using organic tree supports connected only to the inner concave face; rear rim includes two integrated 20mm elastic strap loops.",
+    "paint_recipe": "Satin porcelain white base -> dry-brush metallic gunmetal on cheek vents -> ice-cyan fluorescent ink inside the eye slits for blacklight pop.",
+    "reel_hook": "Miyabi is the most anticipated agent in Zenless Zone Zero\u2014here\u2019s her Section 6 fox mask fresh off the Bambu.",
+    "tripo_prompt": "Orthographic front view, symmetrical, chunky 3D-printable geometry, deep recessed details, solid manifold structure, isolated on a pure white background, no thin floating wires, sleek futuristic kitsune fox half-mask, angular geometric fox ears, crisp recessed eye slits, stylized fox whisker vents, bold forehead crest emblem, untextured matte neutral grey 3D clay model, smooth concave interior shell.",
+    "src_image": "C:\\Users\\TUFGaming\\.gemini\\antigravity\\brain\\7dfd0d62-e9cd-45c9-8545-2606b89974e3\\miyabi_kitsune_void_mask_1794184189256.jpg",
+    "filename": "07_miyabi_kitsune_void_mask.jpg",
+    "web_url": "concepts/07_miyabi_kitsune_void_mask.jpg",
+    "search_query": "Hoshimi Miyabi fox mask Section 6 Zenless Zone Zero cosplay reference",
+    "ip_risk_level": "Safe (HoYoverse Fan Merch Policy \u2014 Up to 200 Units)"
+  },
+  {
+    "id": "viktor_arcane_ascended_mask",
+    "title": "Hextech Ascended Faceplate \u2014 Biomechanical Cosplay Half-Mask",
+    "ip_source": "Arcane Season 2 (Acts 2 & 3)",
+    "hero_name": "Viktor (Machine Herald Ascended)",
+    "status": "pending",
+    "saturation": "\ud83d\udfe2 0 Season 2 Ascended Models on MakerWorld",
+    "plates": "1 Plate (Contoured Face Shell + Magnetic Ear Mount)",
+    "print_strategy": "Printed upright with tree supports supporting the cheek curve; single vertical Hextech eye aperture designed to hold a 3mm violet/cyan diffuse acrylic rod.",
+    "paint_recipe": "Dark scorched iron base coat -> bright gold electroplate Rub 'n Buff on geometric cheek scrollwork -> iridescent purple/cyan ink wash in biomechanical grooves.",
+    "reel_hook": "Viktor's finale transformation in Arcane gave me chills, so I sculpted and 3D printed his ascended mask.",
+    "tripo_prompt": "Orthographic front view, symmetrical, chunky 3D-printable geometry, deep recessed details, solid manifold structure, isolated on a pure white background, no thin floating wires, stylized biomechanical prosthetic half-mask, sharp vertical hexagonal eye aperture on one side, sweeping Art Deco bronze relief cheek lines, recessed circuit channel inlays, untextured matte neutral grey clay resin render, clean manifold shell.",
+    "src_image": "C:\\Users\\TUFGaming\\.gemini\\antigravity\\brain\\7dfd0d62-e9cd-45c9-8545-2606b89974e3\\viktor_arcane_ascended_mask_1794184204383.jpg",
+    "filename": "08_viktor_arcane_ascended_mask.jpg",
+    "web_url": "concepts/08_viktor_arcane_ascended_mask.jpg",
+    "search_query": "Viktor mask Machine Herald Arcane Season 2 reference art",
+    "ip_risk_level": "Safe (Riot Games Legal Jibber Jabber Policy)"
+  },
+  {
+    "id": "firefly_sam_henshin_morpher",
+    "title": "Iron Cavalry Transformation Core \u2014 Articulated Desk Relic & Prop",
+    "ip_source": "Honkai: Star Rail (Penacony)",
+    "hero_name": "Firefly / SAM",
+    "status": "pending",
+    "saturation": "\ud83d\udfe2 0 Free Prop Profiles on MakerWorld",
+    "plates": "2 Plates (Main Mecha Chassis + Twin Articulated Wings)",
+    "print_strategy": "Plate 1 = Handheld core body with snap-fit hinges; Plate 2 = Left/Right stabilization wings with 1.75mm filament pin pivots and central LED cavity.",
+    "paint_recipe": "Matte dark gunmetal chassis -> light titanium silver accents on wing plates -> neon turquoise/cyan glow paint inside the honeycomb energy core.",
+    "reel_hook": "Firefly's SAM transformation in your hand\u2014I 3D printed her henshin device with working folding wings.",
+    "tripo_prompt": "Orthographic front view, symmetrical, chunky 3D-printable geometry, deep recessed details, solid manifold structure, isolated on a pure white background, no thin floating wires, compact handheld mechanical morpher transformation device, symmetrical angular mecha chassis with twin folding stabilization wings, recessed hexagonal energy cell housing in center, heavy chamfered industrial grip panels, matte neutral grey 3D clay print model.",
+    "src_image": "C:\\Users\\TUFGaming\\.gemini\\antigravity\\brain\\7dfd0d62-e9cd-45c9-8545-2606b89974e3\\firefly_sam_henshin_morpher_1794184220941.jpg",
+    "filename": "09_firefly_sam_henshin_morpher.jpg",
+    "web_url": "concepts/09_firefly_sam_henshin_morpher.jpg",
+    "search_query": "Firefly transformation device SAM morpher Honkai Star Rail reference",
+    "ip_risk_level": "Safe (HoYoverse Fan Merch Policy \u2014 Up to 200 Units)"
+  },
+  {
+    "id": "mh_wilds_scoutfly_slinger",
+    "title": "Wilds Expedition Slinger & Scoutfly Lantern \u2014 Wearable Forearm Rig",
+    "ip_source": "Monster Hunter Wilds",
+    "hero_name": "Hunter (Research Commission)",
+    "status": "pending",
+    "saturation": "\ud83d\udfe2 0 Slinger Models on MakerWorld",
+    "plates": "2 Plates (Slinger Forearm Rail + Hollow Scoutfly Lantern Cage)",
+    "print_strategy": "Plate 1 = Curved forearm bracer rail with buckle loops; Plate 2 = Cylindrical openwork lantern cage with bottom twist cap sized for green glow-sticks or LED puck.",
+    "paint_recipe": "Weathered bone ivory on carved horns -> textured cast-iron spray on mechanical arm -> burnt umber oil wash in recesses -> emerald green glow inside lantern.",
+    "reel_hook": "460,000 players were in the Monster Hunter Wilds beta, so I had to 3D print the new slinger and glowing scoutfly cage.",
+    "tripo_prompt": "Orthographic front view, symmetrical, chunky 3D-printable geometry, deep recessed details, solid manifold structure, isolated on a pure white background, no thin floating wires, rugged wrist-mounted slinger crossbow chassis paired with cylindrical openwork scoutfly lantern cage, carved monster bone frame with heavy rivets, forged iron launcher rails, deep diagonal lattice cutouts in lantern cylinder, matte grey resin 3D render.",
+    "src_image": "C:\\Users\\TUFGaming\\.gemini\\antigravity\\brain\\7dfd0d62-e9cd-45c9-8545-2606b89974e3\\mh_wilds_scoutfly_slinger_1794184241216.jpg",
+    "filename": "10_mh_wilds_scoutfly_slinger.jpg",
+    "web_url": "concepts/10_mh_wilds_scoutfly_slinger.jpg",
+    "search_query": "Monster Hunter Wilds slinger scoutfly cage Hunter gear reference",
+    "ip_risk_level": "Safe (Capcom Community & Cosplay Friendly)"
   }
 ]

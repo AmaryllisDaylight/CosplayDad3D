@@ -1,7 +1,7 @@
 # @cosplaydad3d Master Content Tracker
 
-> **Last Updated**: `2026-11-08 22:30`  
-> **Ready Queue**: `15` batches | **Posted Archive**: `0` batches | **MakerWorld 3D Models**: `10` projects | **Inbox Drop**: `0` files | **JPG/Video Originals Backup**: `87` files (Zero `.HEIC` policy active)
+> **Last Updated**: `2026-11-08 22:43`  
+> **Ready Queue**: `15` batches | **Posted Archive**: `0` batches | **MakerWorld 3D Models**: `11` projects | **Inbox Drop**: `0` files | **JPG/Video Originals Backup**: `87` files (Zero `.HEIC` policy active)
 
 ## Quick Commands (in Antigravity)
 - **`do it`** *(or **`process inbox`**)* — Scan `01_Inbox_Drop/`, convert any `.HEIC` to `.jpg` & delete the `.HEIC`, resize any videos (`ffmpeg` 4:5 or 9:16), auto-route `.stl` (`>500k` Tripo vs `<=500k` Final) / `.blend` / `.3mf` files, sort AI paint/finish concepts, and refresh the dashboard.
@@ -46,6 +46,7 @@
 | `MW_08_EmberCore_Skull_Loin_Guard` | Gothic Skull Filigree Loin Guard / Belt Tasset Apron - Cosplay Armor [EmberCore Series] | 0 | 2 | 1 | 2 | **1** | **0** | **1** |
 | `MW_09_EmberCore_Mage_Filigree_Tasset` | Fantasy Mage Filigree Hip Tasset / Thigh Armor Plate - Cosplay Armor [EmberCore Series] | 4 | 0 | 1 | 1 | **1** | **0** | **6** |
 | `MW_10_EmberCore_Fantasy_Dagger` | Dragon-Wing Runic Fantasy Dagger w/ Claw & Orb Pommel - Cosplay Prop [EmberCore Armory] | 0 | 0 | 1 | 1 | **1** | **0** | **1** |
+| `MW_11_EmberCore_Twin_Serpent_Dragon_Dagger` | Twin-Serpent Helical Dragon Dagger w/ Horned Skull Guard & Coiled Tail Orb Pommel [EmberCore Armory] | 0 | 0 | 1 | 1 | **1** | **0** | **1** |
 
 ---
 

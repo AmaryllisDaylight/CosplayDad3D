@@ -262,7 +262,7 @@ def render_clay_preview(bpy, mathutils, mesh_objs, out_render_path: Path) -> Non
     cam_obj = bpy.data.objects.new("StudioClayCam", cam_data)
     scene.collection.objects.link(cam_obj)
 
-    offset = mathutils.Vector((-0.95, -1.15, 0.40)).normalized() * (size * 1.42)
+    offset = mathutils.Vector((-0.95, -1.15, 0.40)).normalized() * (size * 1.80)
     cam_obj.location = center + offset
     direction = center - cam_obj.location
     cam_obj.rotation_euler = direction.to_track_quat("-Z", "Y").to_euler()

@@ -435,6 +435,29 @@ Print & Slicer Recommendations:
 
 Tags: embercore, cosplay, dagger, dragon, runes, weapon, prop, fantasy, rpg, dnd""",
     },
+    {
+        "folder": "MW_11_EmberCore_Twin_Serpent_Dragon_Dagger",
+        "title": "Twin-Serpent Helical Dragon Dagger w/ Horned Skull Guard & Coiled Tail Orb Pommel [EmberCore Armory]",
+        "category": "EmberCore Armory • Cosplay Weapons & Props",
+        "status": "Decimated & Rendered — Ready for Bambu Studio .3mf Profile & Physical Print Photo",
+        "tags": "embercore, cosplay, dagger, dragon, serpent, snake, ritualblade, weapon, prop, fantasy, rpg, dnd, bambulab",
+        "photos": [],
+        "concepts": [],
+        "description": """Twin-Serpent Helical Dragon Dagger — a dark-fantasy warlock, rogue, and ritual sidearm in the @cosplaydad3d EmberCore Armory.
+
+• Sculpt Highlights:
+  - Double-helix pierced blade formed by two intertwined, heavy-scaled dragon serpents with open hollow gaps down the core (perfect for internal LED fiber/filament glow or deep shadow washes)
+  - Horned dragon-head medallion centerpiece at the ricasso flanked by twin spiked dragon-talon crossguards
+  - Ornate scaled grip terminating in a coiled dragon-tail pommel clutching a smooth arcane orb
+
+Print & Slicer Recommendations:
+• File Naming: EmberCore_Twin_Serpent_Dragon_Dagger_v1.stl (decimated from 1.90M to 280k triangles — 13.35 MB — for crisp scale relief without slicer lag) + EmberCore_Twin_Serpent_Dragon_Dagger_Profile.3mf
+• Printer: Bambu Lab P2S / H2S (Textured PEI Plate)
+• Layer Height: 0.16mm, 3–4 wall loops for rigid helical blade strength, 15% Gyroid infill
+• Supports: Organic Tree Supports (0.20mm top Z-distance so support branches snake cleanly out of the open serpent helix gaps)
+
+Tags: embercore, cosplay, dagger, dragon, serpent, ritualblade, weapon, prop, fantasy, rpg, dnd""",
+    },
 ]
 
 

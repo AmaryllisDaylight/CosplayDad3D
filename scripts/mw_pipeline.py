@@ -412,6 +412,29 @@ Print & Slicer Recommendations:
 
 Tags: embercore, cosplay, armor, tasset, hiparmor, filigree, fantasy, wearable, rpg""",
     },
+    {
+        "folder": "MW_10_EmberCore_Fantasy_Dagger",
+        "title": "Dragon-Wing Runic Fantasy Dagger w/ Claw & Orb Pommel - Cosplay Prop [EmberCore Armory]",
+        "category": "EmberCore Armory • Cosplay Weapons & Props",
+        "status": "Decimated & Rendered — Ready for Bambu Studio .3mf Profile & Physical Print Photo",
+        "tags": "embercore, cosplay, dagger, knife, dragon, runes, weapon, prop, fantasy, rpg, dnd, bambulab",
+        "photos": [],
+        "concepts": [],
+        "description": """Dragon-Wing Runic Fantasy Dagger — an ornate dark-fantasy sidearm and ritual blade in the @cosplaydad3d EmberCore Armory.
+
+• Sculpt Highlights:
+  - Twin sculpted dragon-wing crossguards framing the ricasso
+  - Recurve single-edged fantasy blade with a deep central fuller engraved with arcane elder runes (ideal for glowing molten ember or arcane washes)
+  - Ribbed cord-wrapped grip terminating in a four-talon dragon claw clutching a spherical orb pommel
+
+Print & Slicer Recommendations:
+• File Naming: EmberCore_Fantasy_Dagger_v1.stl (decimated from 1.90M to 280k triangles — 13.35 MB — for crisp runic detail without slicer lag) + EmberCore_Fantasy_Dagger_Profile.3mf
+• Printer: Bambu Lab P2S / H2S (Textured PEI Plate)
+• Layer Height: 0.16mm (or 0.12mm for ultra-sharp blade runes), 3–4 wall loops for rigid blade strength, 15% Gyroid infill
+• Supports: Organic Tree Supports (print vertically or split in half flat on the bed in Bambu Studio for support-free blade faces)
+
+Tags: embercore, cosplay, dagger, dragon, runes, weapon, prop, fantasy, rpg, dnd""",
+    },
 ]
 
 

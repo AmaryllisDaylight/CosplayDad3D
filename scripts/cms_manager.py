@@ -1350,8 +1350,8 @@ def build_tracker_and_dashboard() -> None:
                     mw_posted_date: mwDate,
                     posted_platforms: computePlatformsLabel(igDate, mwDate),
                     approval: sb.approval || b.approval || "Needs Review",
-                    ig_caption: sb.ig_caption !== undefined ? sb.ig_caption : b.ig_caption,
-                    mw_text: sb.mw_text !== undefined ? sb.mw_text : b.mw_text,
+                    ig_caption: (sb.ig_caption && sb.ig_caption.trim()) ? sb.ig_caption : b.ig_caption,
+                    mw_text: (sb.mw_text && sb.mw_text.trim()) ? sb.mw_text : b.mw_text,
                     slides,
                     selectedIdx: firstActiveIdx >= 0 ? firstActiveIdx : 0
                 }};

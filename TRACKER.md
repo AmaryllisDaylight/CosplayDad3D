@@ -1,7 +1,7 @@
 # @cosplaydad3d Master Content Tracker
 
-> **Last Updated**: `2026-11-08 20:04`  
-> **Ready Queue**: `15` batches | **Posted Archive**: `0` batches | **MakerWorld 3D Models**: `9` projects | **Inbox Drop**: `0` files | **JPG/Video Originals Backup**: `87` files (Zero `.HEIC` policy active)
+> **Last Updated**: `2026-11-08 22:30`  
+> **Ready Queue**: `15` batches | **Posted Archive**: `0` batches | **MakerWorld 3D Models**: `10` projects | **Inbox Drop**: `0` files | **JPG/Video Originals Backup**: `87` files (Zero `.HEIC` policy active)
 
 ## Quick Commands (in Antigravity)
 - **`do it`** *(or **`process inbox`**)* — Scan `01_Inbox_Drop/`, convert any `.HEIC` to `.jpg` & delete the `.HEIC`, resize any videos (`ffmpeg` 4:5 or 9:16), auto-route `.stl` (`>500k` Tripo vs `<=500k` Final) / `.blend` / `.3mf` files, sort AI paint/finish concepts, and refresh the dashboard.
@@ -28,7 +28,7 @@
 | **#12** | **Needs Review** | - | - | `Batch_12_Con_Floor_Memories_And_Throwbacks` | Colossalcon East Memories & Where the Costume Building Started | 6 | `01_Hero.jpg` |
 | **#13** | **Needs Review** | - | - | `Batch_13_Doughboy_Pool_Winterizing_Cap_Functional_Print` | When the Armor Printer Pauses for Dad Duty — Doughboy Pool Return Plug Cap | 5 | `01_Hero.jpg` |
 | **#14** | **Needs Review** | - | - | `Batch_14_Shaman_Crystal_Axe_Ogi3D_Make` | Shaman Crystalline Runic Axe — Painted Make (@ogi3d Model) | 5 | `01_Hero.jpg` |
-| **#15** | **Ready for Kevin's Review** | `—` | `—` | `Batch_15_Mage_Shoulder_Armor_Ogi3D_Make` | Batch_15_Mage_Shoulder_Armor_Ogi3D_Make | 6 | `01_Hero.jpg` |
+| **#15** | **Needs Review** | - | - | `Batch_15_Mage_Shoulder_Armor_Ogi3D_Make` | Kirin Tor Mage Shoulder Armor (Ogi3D Make) | 6 | `01_Hero.jpg` |
 
 ---
 
@@ -45,6 +45,7 @@
 | `MW_07_EmberCore_Skull_Headpiece` | Gothic Skull Filigree Headpiece / Crown - Cosplay Armor [EmberCore Series] | 0 | 1 | 1 | 1 | **1** | **0** | **1** |
 | `MW_08_EmberCore_Skull_Loin_Guard` | Gothic Skull Filigree Loin Guard / Belt Tasset Apron - Cosplay Armor [EmberCore Series] | 0 | 2 | 1 | 2 | **1** | **0** | **1** |
 | `MW_09_EmberCore_Mage_Filigree_Tasset` | Fantasy Mage Filigree Hip Tasset / Thigh Armor Plate - Cosplay Armor [EmberCore Series] | 4 | 0 | 1 | 1 | **1** | **0** | **6** |
+| `MW_10_EmberCore_Fantasy_Dagger` | Dragon-Wing Runic Fantasy Dagger w/ Claw & Orb Pommel - Cosplay Prop [EmberCore Armory] | 0 | 0 | 1 | 1 | **1** | **0** | **1** |
 
 ---
 

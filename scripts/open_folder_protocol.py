@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""
+r"""
 Custom Windows URL Protocol Handler (`cosplaydad://open/<relative_path>`)
 =========================================================================
 Allows clicking "📂 Open Folder in Explorer" directly from https://myairotica.web.app/cosplaydad/

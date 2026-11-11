@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""
+r"""
 Headless Blender Auto-Decimator, STL Exporter & Clay Render Generator
 =====================================================================
 Can be invoked two ways:

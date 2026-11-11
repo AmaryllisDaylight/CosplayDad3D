@@ -25,17 +25,43 @@ import sys
 from pathlib import Path
 
 BLENDER_CANDIDATES = [
+    r"C:\Program Files\Blender Foundation\Blender 5.3\blender.exe",
     r"C:\Program Files\Blender Foundation\Blender 5.2\blender.exe",
+    r"C:\Program Files\Blender Foundation\Blender 4.5\blender.exe",
+    r"C:\Program Files\Blender Foundation\Blender 4.2\blender.exe",
     r"C:\Program Files\Blender Foundation\Blender 4.0\blender.exe",
     r"C:\Program Files\Blender Foundation\Blender 3.0\blender.exe",
 ]
 
 
 def find_blender_exe() -> str:
+    # 1. Check PATH
+    which_b = shutil.which("blender")
+    if which_b and os.path.exists(which_b):
+        return which_b
+
+    # 2. Dynamic scan in Program Files\Blender Foundation
+    bf_dir = Path(r"C:\Program Files\Blender Foundation")
+    if bf_dir.exists():
+        found = sorted(bf_dir.glob("*/blender.exe"), reverse=True)
+        if found:
+            return str(found[0])
+
+    # 3. Dynamic scan in LocalAppData\Programs\Blender Foundation
+    local_bf = Path(os.environ.get("LOCALAPPDATA", "")) / "Programs" / "Blender Foundation"
+    if local_bf.exists():
+        found = sorted(local_bf.glob("*/blender.exe"), reverse=True)
+        if found:
+            return str(found[0])
+
+    # 4. Check explicit candidates
     for c in BLENDER_CANDIDATES:
         if os.path.exists(c):
             return c
-    raise FileNotFoundError("Could not find blender.exe in C:\\Program Files\\Blender Foundation")
+    raise FileNotFoundError(
+        "Could not find blender.exe. Please install Blender (e.g. `winget install BlenderFoundation.Blender` "
+        "or from https://www.blender.org/download/)."
+    )
 
 
 # ============================================================================

@@ -1,7 +1,7 @@
 # @cosplaydad3d Master Content Tracker
 
-> **Last Updated**: `2026-11-08 22:43`  
-> **Ready Queue**: `15` batches | **Posted Archive**: `0` batches | **MakerWorld 3D Models**: `11` projects | **Inbox Drop**: `0` files | **JPG/Video Originals Backup**: `87` files (Zero `.HEIC` policy active)
+> **Last Updated**: `2026-11-14 00:17`  
+> **Ready Queue**: `15` batches | **Posted Archive**: `0` batches | **MakerWorld 3D Models**: `19` projects | **Inbox Drop**: `2` files | **JPG/Video Originals Backup**: `87` files (Zero `.HEIC` policy active)
 
 ## Quick Commands (in Antigravity)
 - **`do it`** *(or **`process inbox`**)* — Scan `01_Inbox_Drop/`, convert any `.HEIC` to `.jpg` & delete the `.HEIC`, resize any videos (`ffmpeg` 4:5 or 9:16), auto-route `.stl` (`>500k` Tripo vs `<=500k` Final) / `.blend` / `.3mf` files, sort AI paint/finish concepts, and refresh the dashboard.
@@ -46,7 +46,15 @@
 | `MW_08_EmberCore_Skull_Loin_Guard` | Gothic Skull Filigree Loin Guard / Belt Tasset Apron - Cosplay Armor [EmberCore Series] | 0 | 2 | 1 | 2 | **1** | **0** | **1** |
 | `MW_09_EmberCore_Mage_Filigree_Tasset` | Fantasy Mage Filigree Hip Tasset / Thigh Armor Plate - Cosplay Armor [EmberCore Series] | 4 | 0 | 1 | 1 | **1** | **0** | **6** |
 | `MW_10_EmberCore_Fantasy_Dagger` | Dragon-Wing Runic Fantasy Dagger w/ Claw & Orb Pommel - Cosplay Prop [EmberCore Armory] | 0 | 0 | 1 | 1 | **1** | **0** | **1** |
-| `MW_11_EmberCore_Twin_Serpent_Dragon_Dagger` | Twin-Serpent Helical Dragon Dagger w/ Horned Skull Guard & Coiled Tail Orb Pommel [EmberCore Armory] | 0 | 0 | 1 | 1 | **1** | **0** | **1** |
+| `MW_11_EmberCore_Twin_Serpent_Dragon_Dagger` | Twin-Serpent Helical Dragon Dagger w/ Horned Skull Guard & Coiled Tail Orb Pommel [EmberCore Armory] | 0 | 0 | 1 | 1 | **1** | **1** | **1** |
+| `MW_12_EmberCore_Medieval_Broadsword` | Medieval Knight Broadsword w/ Cruciform Guard & Fluted Blade [EmberCore Armory] | 0 | 0 | 1 | 1 | **1** | **0** | **1** |
+| `MW_13_EmberCore_Medieval_Longsword` | Medieval Runic Hand-and-a-Half Longsword w/ Swept Guard [EmberCore Armory] | 0 | 0 | 1 | 1 | **1** | **1** | **1** |
+| `MW_14_EmberCore_Fantasy_Curved_Dagger` | Curved Arcane Assassin Dagger w/ Talon Crossguard [EmberCore Armory] | 0 | 0 | 1 | 1 | **1** | **0** | **1** |
+| `MW_15_EmberCore_Fantasy_Dagger_Variant_A` | Arcane Filigree Ritual Dagger Variant A [EmberCore Armory] | 0 | 0 | 1 | 1 | **1** | **0** | **1** |
+| `MW_16_EmberCore_Fantasy_Dagger_Variant_B` | Arcane Filigree Ritual Dagger Variant B [EmberCore Armory] | 0 | 0 | 1 | 1 | **1** | **0** | **1** |
+| `MW_17_EmberCore_Fantasy_Dagger_Variant_C` | Arcane Filigree Ritual Dagger Variant C [EmberCore Armory] | 0 | 0 | 1 | 1 | **1** | **0** | **1** |
+| `MW_18_Christmas_Ornamental_Ball` | Intricate Filigree Christmas Tree Bauble / Holiday Ornamental Ball | 0 | 0 | 1 | 1 | **1** | **0** | **1** |
+| `MW_19_Cat_Butt_Christmas_Ornament_Bauble` | Funny Cat Butt Lattice Christmas Tree Bauble / Holiday Ornament | 0 | 0 | 1 | 1 | **1** | **0** | **1** |
 
 ---
 

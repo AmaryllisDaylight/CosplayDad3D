@@ -75,7 +75,7 @@ IG_RATIO = IG_WIDTH / IG_HEIGHT  # 0.80 (4:5)
 
 VIDEO_EXTS = {".mp4", ".mov", ".m4v", ".webm", ".avi"}
 IMAGE_EXTS = {".jpg", ".jpeg", ".png", ".webp"}
-HEIC_EXTS = {".heic", ".heif"}
+HEIC_EXTS = {".heic", ".heif", ".jfif"}
 
 
 def ensure_directories() -> None:

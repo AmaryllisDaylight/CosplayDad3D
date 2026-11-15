@@ -76,6 +76,9 @@
 
     <!-- Right Header Status / Tripo API Pill -->
     <div class="header-status">
+      <button id="btn-phone-connect" class="glass-btn btn-sm" title="Connect Phone / Mobile Access" style="border-color: rgba(56,189,248,0.5); color: #38bdf8; font-weight: 700;">
+        📱 Phone Link
+      </button>
       <div id="tripo-balance-pill" class="balance-pill glass-pill" title="Click to refresh Tripo API balance">
         <span class="status-dot online"></span>
         <span id="balance-text">Tripo API: Checking...</span>
@@ -373,6 +376,67 @@
           <img id="inspector-img" src="" alt="Inspect Preview" draggable="false" />
         </div>
         <button id="btn-inspect-next" class="nav-arrow nav-next glass-btn" title="Next Image (→)">›</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Bottom Navigation Bar (Visible on screens <= 960px) -->
+  <nav class="mobile-nav-bar" id="mobile-nav-bar">
+    <button class="mobile-nav-tab" data-tab="folders">
+      <span class="tab-icon">📁</span>
+      <span class="tab-label">Folders</span>
+    </button>
+    <button class="mobile-nav-tab active" data-tab="gallery">
+      <span class="tab-icon">🖼️</span>
+      <span class="tab-label">Gallery</span>
+    </button>
+    <button class="mobile-nav-tab" data-tab="tripo">
+      <span class="tab-icon">⚡</span>
+      <span class="tab-label">Tripo 3D</span>
+      <span id="mobile-job-badge" class="tab-badge hidden"></span>
+    </button>
+  </nav>
+
+  <!-- Phone Connect / QR Modal -->
+  <div id="phone-modal" class="phone-modal hidden">
+    <div class="phone-modal-backdrop" id="phone-modal-backdrop"></div>
+    <div class="phone-modal-box glass-panel">
+      <div class="phone-modal-header">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <span style="font-size: 1.5rem;">📱</span>
+          <div>
+            <h3 style="margin: 0; font-size: 1.05rem; font-weight: 800; color: #fff;">Open on Your Phone</h3>
+            <p style="margin: 0; font-size: 0.74rem; color: var(--text-muted);">Scan QR code with phone camera or tap link below</p>
+          </div>
+        </div>
+        <button id="btn-phone-close" class="icon-btn glass-btn close-btn">✕</button>
+      </div>
+
+      <div class="phone-modal-body">
+        <div class="qr-container">
+          <img id="qr-img" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&amp;data=https://relations-called-puerto-vehicle.trycloudflare.com" alt="QR Code to Studio" />
+          <span class="qr-caption">📷 Point phone camera here</span>
+        </div>
+
+        <div class="phone-links-list">
+          <div class="phone-link-card">
+            <div class="link-info">
+              <span class="link-badge public">Public Web (Cloudflare)</span>
+              <a href="https://relations-called-puerto-vehicle.trycloudflare.com" target="_blank" class="link-url" id="link-cf">https://relations-called-puerto-vehicle.trycloudflare.com</a>
+              <span class="link-desc">Works everywhere on 5G, LTE, or Wi-Fi</span>
+            </div>
+            <button class="glass-btn btn-xs copy-btn" onclick="navigator.clipboard.writeText('https://relations-called-puerto-vehicle.trycloudflare.com'); showToast('📋 Copied Public Web URL!')">Copy</button>
+          </div>
+
+          <div class="phone-link-card">
+            <div class="link-info">
+              <span class="link-badge lan">Home Wi-Fi LAN</span>
+              <a href="http://192.168.1.35:5050" target="_blank" class="link-url" id="link-lan">http://192.168.1.35:5050</a>
+              <span class="link-desc">Fastest local speed on home network</span>
+            </div>
+            <button class="glass-btn btn-xs copy-btn" onclick="navigator.clipboard.writeText('http://192.168.1.35:5050'); showToast('📋 Copied Local Wi-Fi URL!')">Copy</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>

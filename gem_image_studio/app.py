@@ -21,6 +21,19 @@ except ImportError:
 import tripo_client
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+REPO_ROOT = os.path.dirname(BASE_DIR)
+if os.path.join(REPO_ROOT, "scripts") not in sys.path:
+    sys.path.insert(0, os.path.join(REPO_ROOT, "scripts"))
+
+try:
+    from path_config import find_drive_root
+    DRIVE_ROOT = str(find_drive_root())
+except Exception:
+    DRIVE_ROOT = r"G:\My Drive\!cosplaydad3d"
+
+UNIFIED_INBOX_DIR = os.path.join(DRIVE_ROOT, "01_Inbox_Drop")
+MW_MODELS_DIR = os.path.join(DRIVE_ROOT, "04_MakerWorld_Models")
+
 DEFAULT_FOLDER = os.path.join(BASE_DIR, "filigree staff", "05_Elongated_LED_Tubes")
 OUTPUT_STL_DIR = os.path.join(BASE_DIR, "output_stl")
 STAGING_DIR = os.path.join(BASE_DIR, "Tripo_Web_Staging")
@@ -66,6 +79,36 @@ load_jobs()
 def get_bookmarks():
     """Return curated project bookmarks for quick navigation."""
     candidates = [
+        {
+            "name": "01_Inbox_Drop (Single Dropbox)",
+            "subtitle": "Unified Drive Drop Zone (!cosplaydad3d)",
+            "icon": "inbox",
+            "path": UNIFIED_INBOX_DIR,
+        },
+        {
+            "name": "04_MakerWorld_Models (MW_01–29)",
+            "subtitle": "280k Decimated STLs & Clay Renders",
+            "icon": "box",
+            "path": MW_MODELS_DIR,
+        },
+        {
+            "name": "Fantasy Weapons & Bracer",
+            "subtitle": "Warhammer, Celestial Staff & Weapons",
+            "icon": "sparkles",
+            "path": os.path.join(BASE_DIR, "Fantasy_Weapons_and_Bracer"),
+        },
+        {
+            "name": "Holiday Ornaments",
+            "subtitle": "14 Openwork & Relief Tree Baubles",
+            "icon": "sun",
+            "path": os.path.join(BASE_DIR, "Holiday_Ornaments"),
+        },
+        {
+            "name": "Trending Hero Props (Radar)",
+            "subtitle": "5 AI-to-3D Print Concepts for Tripo",
+            "icon": "sparkles",
+            "path": os.path.join(BASE_DIR, "Trending_Hero_Props"),
+        },
         {
             "name": "Embercore Armor (All)",
             "subtitle": "Light-Passthrough Filigree Armor",
@@ -676,7 +719,7 @@ def _run_tripo_pipeline(job_id):
         update_job(status="downloading", status_label=f"Downloading .{export_format}...", progress=96)
         tripo_client.download_file(stl_url, stl_local)
 
-        # Also copy into the source image folder's stl/ subdirectory for organization
+        # Also copy into the source image folder's stl/ subdirectory AND Unified Inbox Drop
         source_folder = job.get("source_folder")
         project_stl_copy = None
         if source_folder and os.path.isdir(source_folder):
@@ -684,6 +727,12 @@ def _run_tripo_pipeline(job_id):
             os.makedirs(proj_stl_dir, exist_ok=True)
             project_stl_copy = os.path.join(proj_stl_dir, stl_filename)
             shutil.copyfile(stl_local, project_stl_copy)
+
+        if os.path.isdir(UNIFIED_INBOX_DIR):
+            try:
+                shutil.copyfile(stl_local, os.path.join(UNIFIED_INBOX_DIR, stl_filename))
+            except Exception as e:
+                print(f"Inbox copy warning: {e}")
 
         update_job(
             status="success",
@@ -1019,6 +1068,14 @@ def api_tripo_pull_stl(job_id):
         project_stl_copy = os.path.join(proj_stl_dir, dst_filename)
         shutil.copyfile(dst_stl, project_stl_copy)
 
+    inbox_stl_copy = None
+    if os.path.isdir(UNIFIED_INBOX_DIR):
+        try:
+            inbox_stl_copy = os.path.join(UNIFIED_INBOX_DIR, dst_filename)
+            shutil.copyfile(dst_stl, inbox_stl_copy)
+        except Exception as e:
+            print(f"Inbox copy warning: {e}")
+
     with JOBS_LOCK:
         target_job["status"] = "success"
         target_job["status_label"] = f"Imported ({ext.upper()})"
@@ -1039,11 +1096,21 @@ def api_tripo_pull_stl(job_id):
 
 if __name__ == "__main__":
     import webbrowser
+    import socket
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    local_ip = "127.0.0.1"
+    try:
+        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        s.connect(("8.8.8.8", 80))
+        local_ip = s.getsockname()[0]
+        s.close()
+    except Exception:
+        pass
     print("=" * 68)
     print("  CosplayDad3D Glass Studio - Image & Tripo 3D Hub")
-    print("  Local URL: http://127.0.0.1:5050")
+    print(f"  Local PC URL:   http://127.0.0.1:5050")
+    print(f"  Mobile LAN URL: http://{local_ip}:5050")
     print("=" * 68)
     if "--no-browser" not in sys.argv:
         threading.Timer(1.2, lambda: webbrowser.open("http://127.0.0.1:5050")).start()
-    app.run(host="127.0.0.1", port=5050, debug=False, threaded=True)
+    app.run(host="0.0.0.0", port=5050, debug=False, threaded=True)

@@ -177,6 +177,13 @@ async function browseFolder(folderPath) {
     els.pathInput.value = state.currentFolder;
     els.folderTitle.textContent = data.folder_name;
 
+    if (window.innerWidth <= 960) {
+      document.body.setAttribute("data-mobile-view", "gallery");
+      document.querySelectorAll(".mobile-nav-tab").forEach((tab) => {
+        tab.classList.toggle("active", tab.dataset.tab === "gallery");
+      });
+    }
+
     if (data.converted_now && data.converted_now.length > 0) {
       showToast(`⚡ Auto-converted ${data.converted_now.length} image(s) to .JPG`);
     }
@@ -1027,10 +1034,47 @@ function initEventListeners() {
       browseFolder(state.currentFolder);
     }
   });
+
+  // Mobile Bottom Tab Bar
+  document.querySelectorAll(".mobile-nav-tab").forEach((tab) => {
+    tab.addEventListener("click", () => {
+      const view = tab.dataset.tab;
+      document.body.setAttribute("data-mobile-view", view);
+      document.querySelectorAll(".mobile-nav-tab").forEach((t) => {
+        t.classList.toggle("active", t.dataset.tab === view);
+      });
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  });
+
+  // Phone Connect Modal
+  const btnPhoneConnect = document.getElementById("btn-phone-connect");
+  const phoneModal = document.getElementById("phone-modal");
+  const btnPhoneClose = document.getElementById("btn-phone-close");
+  const phoneModalBackdrop = document.getElementById("phone-modal-backdrop");
+
+  if (btnPhoneConnect && phoneModal) {
+    btnPhoneConnect.addEventListener("click", () => {
+      phoneModal.classList.remove("hidden");
+    });
+  }
+  if (btnPhoneClose && phoneModal) {
+    btnPhoneClose.addEventListener("click", () => {
+      phoneModal.classList.add("hidden");
+    });
+  }
+  if (phoneModalBackdrop && phoneModal) {
+    phoneModalBackdrop.addEventListener("click", () => {
+      phoneModal.classList.add("hidden");
+    });
+  }
 }
 
 // Initialize App
 document.addEventListener("DOMContentLoaded", () => {
+  if (window.innerWidth <= 960) {
+    document.body.setAttribute("data-mobile-view", "gallery");
+  }
   initEventListeners();
   loadBookmarks();
   refreshTripoBalance();

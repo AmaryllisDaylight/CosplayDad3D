@@ -6,6 +6,7 @@ const state = {
   filteredImages: [],
   subdirs: [],
   bookmarks: [],
+  expandedFolders: new Map(), // normPath -> Array of subdirs
   mode: "single", // 'single' | 'multiview'
   selectedPaths: new Set(),
   fourViewSlots: {
@@ -114,6 +115,10 @@ function imageApiUrl(filePath) {
   return `/api/image?path=${encodeURIComponent(filePath)}`;
 }
 
+function normPath(p) {
+  return (p || "").replace(/\//g, "\\").replace(/\\+$/, "").toLowerCase();
+}
+
 // 1. Load Bookmarks & Balance
 async function loadBookmarks() {
   try {
@@ -126,21 +131,121 @@ async function loadBookmarks() {
   }
 }
 
-function renderBookmarks() {
-  els.bookmarksList.innerHTML = "";
-  state.bookmarks.forEach((bm) => {
-    const div = document.createElement("div");
-    const isActive =
-      state.currentFolder &&
-      state.currentFolder.toLowerCase() === bm.path.toLowerCase();
-    div.className = `bookmark-item ${isActive ? "active" : ""}`;
-    div.innerHTML = `
-      <span class="bookmark-title">📁 ${bm.name}</span>
-      <span class="bookmark-sub">${bm.subtitle}</span>
+function renderSubdirBranch(subdirs, parentContainer) {
+  const childrenWrap = document.createElement("div");
+  childrenWrap.className = "tree-children";
+
+  subdirs.forEach((sub) => {
+    const subNorm = normPath(sub.path);
+    const curNorm = normPath(state.currentFolder);
+    const isActive = curNorm === subNorm;
+    const isExpanded = state.expandedFolders.has(subNorm);
+    const hasSubdirs = Boolean(sub.has_subdirs) || isExpanded;
+
+    const nodeWrap = document.createElement("div");
+    nodeWrap.className = "tree-node";
+
+    const item = document.createElement("div");
+    item.className = `subfolder-item ${isActive ? "active" : ""} ${isExpanded ? "expanded" : ""}`;
+    item.title = sub.path;
+    const chevronChar = hasSubdirs ? (isExpanded ? "▾" : "▸") : "•";
+    const folderIcon = isExpanded || isActive ? "📂" : "📁";
+
+    item.innerHTML = `
+      <div class="tree-row-left">
+        <span class="tree-chevron">${chevronChar}</span>
+        <span class="subfolder-name">${folderIcon} ${sub.name}</span>
+      </div>
+      <span class="count-pill">${sub.image_count}</span>
     `;
-    div.addEventListener("click", () => browseFolder(bm.path));
-    els.bookmarksList.appendChild(div);
+
+    item.addEventListener("click", (e) => {
+      e.stopPropagation();
+      handleTreeFolderClick(sub.path, hasSubdirs);
+    });
+
+    nodeWrap.appendChild(item);
+
+    if (isExpanded) {
+      const grandChildren = state.expandedFolders.get(subNorm) || [];
+      if (grandChildren.length > 0) {
+        renderSubdirBranch(grandChildren, nodeWrap);
+      }
+    }
+
+    childrenWrap.appendChild(nodeWrap);
   });
+
+  parentContainer.appendChild(childrenWrap);
+}
+
+function renderBookmarks() {
+  if (!els.bookmarksList) return;
+  els.bookmarksList.innerHTML = "";
+  const curNorm = normPath(state.currentFolder);
+
+  state.bookmarks.forEach((bm) => {
+    const bmNorm = normPath(bm.path);
+    const isActive = curNorm === bmNorm;
+    const isAncestor = curNorm.startsWith(bmNorm + "\\");
+    const isExpanded = state.expandedFolders.has(bmNorm);
+    const hasSubdirs = Boolean(bm.has_subdirs) || isExpanded;
+
+    const nodeWrap = document.createElement("div");
+    nodeWrap.className = "tree-node";
+
+    const div = document.createElement("div");
+    div.className = `bookmark-item ${isActive ? "active" : ""} ${isAncestor ? "active-ancestor" : ""} ${isExpanded ? "expanded" : ""}`;
+    div.title = bm.subtitle ? `${bm.subtitle}\n${bm.path}` : bm.path;
+
+    const chevronChar = hasSubdirs ? (isExpanded ? "▾" : "▸") : "•";
+    const folderIcon = isExpanded || isActive || isAncestor ? "📂" : "📁";
+
+    div.innerHTML = `
+      <div class="tree-row-left">
+        <span class="tree-chevron">${chevronChar}</span>
+        <span class="bookmark-title">${folderIcon} ${bm.name}</span>
+      </div>
+    `;
+
+    div.addEventListener("click", () => {
+      handleTreeFolderClick(bm.path, hasSubdirs);
+    });
+
+    nodeWrap.appendChild(div);
+
+    if (isExpanded) {
+      const childSubdirs = state.expandedFolders.get(bmNorm) || [];
+      if (childSubdirs.length > 0) {
+        renderSubdirBranch(childSubdirs, nodeWrap);
+      }
+    }
+
+    els.bookmarksList.appendChild(nodeWrap);
+  });
+}
+
+async function handleTreeFolderClick(folderPath, hasSubdirs) {
+  const targetNorm = normPath(folderPath);
+  const curNorm = normPath(state.currentFolder);
+  const isExpanded = state.expandedFolders.has(targetNorm);
+
+  // If this folder is already expanded, clicking it collapses its subfolder branch
+  if (isExpanded) {
+    for (const key of Array.from(state.expandedFolders.keys())) {
+      if (key === targetNorm || key.startsWith(targetNorm + "\\")) {
+        state.expandedFolders.delete(key);
+      }
+    }
+    if (curNorm === targetNorm) {
+      renderBookmarks();
+      return;
+    }
+    await browseFolder(folderPath, { expandClicked: false });
+    return;
+  }
+
+  await browseFolder(folderPath, { expandClicked: true });
 }
 
 async function refreshTripoBalance() {
@@ -158,7 +263,7 @@ async function refreshTripoBalance() {
 }
 
 // 2. Browse Folder
-async function browseFolder(folderPath) {
+async function browseFolder(folderPath, opts = {}) {
   const autoConv = els.chkAutoConvert.checked;
   const url = `/api/browse?path=${encodeURIComponent(folderPath || "")}&auto_convert=${autoConv}`;
   try {
@@ -173,6 +278,20 @@ async function browseFolder(folderPath) {
     state.parentFolder = data.parent_folder;
     state.images = data.images || [];
     state.subdirs = data.subdirs || [];
+
+    const curNorm = normPath(state.currentFolder);
+    if (opts.expandClicked) {
+      if (state.subdirs.length > 0) {
+        state.expandedFolders.set(curNorm, state.subdirs);
+      }
+    } else if (state.expandedFolders.has(curNorm)) {
+      // Refresh subdirs if already expanded
+      if (state.subdirs.length > 0) {
+        state.expandedFolders.set(curNorm, state.subdirs);
+      } else {
+        state.expandedFolders.delete(curNorm);
+      }
+    }
 
     els.pathInput.value = state.currentFolder;
     els.folderTitle.textContent = data.folder_name;
@@ -196,32 +315,10 @@ async function browseFolder(folderPath) {
     }
 
     renderBookmarks();
-    renderSubfolders();
     applyFiltersAndRenderGallery();
   } catch (err) {
     showToast(`⚠️ Error loading folder: ${err.message}`);
   }
-}
-
-function renderSubfolders() {
-  els.subfoldersList.innerHTML = "";
-  els.subfolderCount.textContent = state.subdirs.length;
-
-  if (state.subdirs.length === 0) {
-    els.subfoldersList.innerHTML = `<div class="empty-slot-hint">No subfolders here</div>`;
-    return;
-  }
-
-  state.subdirs.forEach((sub) => {
-    const item = document.createElement("div");
-    item.className = "subfolder-item";
-    item.innerHTML = `
-      <span>📂 ${sub.name}</span>
-      <span class="count-pill">${sub.image_count}</span>
-    `;
-    item.addEventListener("click", () => browseFolder(sub.path));
-    els.subfoldersList.appendChild(item);
-  });
 }
 
 // 3. Filter, Sort & Render Gallery

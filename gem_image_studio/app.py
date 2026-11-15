@@ -34,7 +34,7 @@ except Exception:
 UNIFIED_INBOX_DIR = os.path.join(DRIVE_ROOT, "01_Inbox_Drop")
 MW_MODELS_DIR = os.path.join(DRIVE_ROOT, "04_MakerWorld_Models")
 
-DEFAULT_FOLDER = os.path.join(BASE_DIR, "filigree staff", "05_Elongated_LED_Tubes")
+DEFAULT_FOLDER = os.path.join(BASE_DIR, "Fantasy_Weapons_and_Bracer")
 OUTPUT_STL_DIR = os.path.join(BASE_DIR, "output_stl")
 STAGING_DIR = os.path.join(BASE_DIR, "Tripo_Web_Staging")
 JOBS_FILE = os.path.join(BASE_DIR, "tripo_jobs.json")
@@ -76,20 +76,55 @@ def save_jobs():
 load_jobs()
 
 
+def _folder_has_subdirs(folder_path):
+    """Return True if folder_path has at least one visible child directory."""
+    try:
+        for e in os.scandir(folder_path):
+            if e.is_dir() and not e.name.startswith(".") and e.name not in ("__pycache__", "_originals_raw", "heic"):
+                return True
+    except Exception:
+        pass
+    return False
+
+
 def get_bookmarks():
-    """Return curated project bookmarks for quick navigation."""
+    """Return top-level project folders for the unified left-sidebar expandable tree."""
     candidates = [
         {
-            "name": "01_Inbox_Drop (Single Dropbox)",
+            "name": "01_Inbox_Drop (Dropbox)",
             "subtitle": "Unified Drive Drop Zone (!cosplaydad3d)",
             "icon": "inbox",
             "path": UNIFIED_INBOX_DIR,
         },
         {
-            "name": "04_MakerWorld_Models (MW_01–29)",
-            "subtitle": "280k Decimated STLs & Clay Renders",
+            "name": "04_MakerWorld_Models",
+            "subtitle": "MW_01–MW_29+ STLs & Renders",
             "icon": "box",
             "path": MW_MODELS_DIR,
+        },
+        {
+            "name": "02_Ready_To_Post (IG)",
+            "subtitle": "Active Instagram & MakerWorld Batches",
+            "icon": "folder",
+            "path": os.path.join(DRIVE_ROOT, "02_Ready_To_Post"),
+        },
+        {
+            "name": "05_Concept_Vault",
+            "subtitle": "Concept Vault & Lookbooks",
+            "icon": "folder",
+            "path": os.path.join(DRIVE_ROOT, "05_Concept_Vault_And_Lookbooks"),
+        },
+        {
+            "name": "Embercore Armor",
+            "subtitle": "Cuirass, Pauldrons, Bracers & Tassets",
+            "icon": "shield",
+            "path": os.path.join(BASE_DIR, "Embercore Armor"),
+        },
+        {
+            "name": "Filigree Staff",
+            "subtitle": "Heads, Shafts, Finales & LED Tubes",
+            "icon": "sparkles",
+            "path": os.path.join(BASE_DIR, "filigree staff"),
         },
         {
             "name": "Fantasy Weapons & Bracer",
@@ -104,86 +139,20 @@ def get_bookmarks():
             "path": os.path.join(BASE_DIR, "Holiday_Ornaments"),
         },
         {
-            "name": "Trending Hero Props (Radar)",
+            "name": "Trending Hero Props",
             "subtitle": "5 AI-to-3D Print Concepts for Tripo",
             "icon": "sparkles",
             "path": os.path.join(BASE_DIR, "Trending_Hero_Props"),
         },
         {
-            "name": "Embercore Armor (All)",
-            "subtitle": "Light-Passthrough Filigree Armor",
-            "icon": "shield",
-            "path": os.path.join(BASE_DIR, "Embercore Armor"),
-        },
-        {
-            "name": "Embercore: Cuirass / Chest",
-            "subtitle": "Skull & Corset Openwork 4-Views",
-            "icon": "shield",
-            "path": os.path.join(BASE_DIR, "Embercore Armor", "01_Cuirass_Chest_Armor"),
-        },
-        {
-            "name": "Embercore: Pauldrons",
-            "subtitle": "3-Tier, 4-Tier & Feathered Shoulders",
-            "icon": "shield",
-            "path": os.path.join(BASE_DIR, "Embercore Armor", "02_Pauldrons_Shoulders"),
-        },
-        {
-            "name": "Embercore: Bracers",
-            "subtitle": "Single-Sided Forearm 4-View & Variants",
-            "icon": "shield",
-            "path": os.path.join(BASE_DIR, "Embercore Armor", "03_Bracers_Forearms"),
-        },
-        {
-            "name": "Embercore: Tassets & Shields",
-            "subtitle": "Openwork Skull Tasset & Shield Plates",
-            "icon": "shield",
-            "path": os.path.join(BASE_DIR, "Embercore Armor", "04_Tassets_and_Shields"),
-        },
-        {
-            "name": "05_Elongated_LED_Tubes",
-            "subtitle": "20 Helix & Chevron Staff Tubes",
-            "icon": "sparkles",
-            "path": os.path.join(BASE_DIR, "filigree staff", "05_Elongated_LED_Tubes"),
-        },
-        {
-            "name": "04_Hollow_LED_Openwork",
-            "subtitle": "Hollow Sleeves, Heads & Finales",
-            "icon": "sun",
-            "path": os.path.join(BASE_DIR, "filigree staff", "04_Hollow_LED_Openwork"),
-        },
-        {
-            "name": "01_Heads (Staff Toppers)",
-            "subtitle": "5 Filigree Staff Heads",
-            "icon": "crown",
-            "path": os.path.join(BASE_DIR, "filigree staff", "01_Heads"),
-        },
-        {
-            "name": "02_Shaft_Sections",
-            "subtitle": "15 Modular Shaft Segments",
-            "icon": "layers",
-            "path": os.path.join(BASE_DIR, "filigree staff", "02_Shaft_Sections"),
-        },
-        {
-            "name": "03_Finales (Butt Caps)",
-            "subtitle": "5 Staff Base Finales",
-            "icon": "anchor",
-            "path": os.path.join(BASE_DIR, "filigree staff", "03_Finales"),
-        },
-        {
-            "name": "Filigree Staff Root",
-            "subtitle": "Master Staff Project Folder",
-            "icon": "folder",
-            "path": os.path.join(BASE_DIR, "filigree staff"),
-        },
-        {
             "name": "Cosplay Portfolio & Builds",
-            "subtitle": "30 Workshop Photos & Concepts",
+            "subtitle": "Workshop Photos & Concepts",
             "icon": "folder",
             "path": os.path.join(BASE_DIR, "Cosplay Portfolio & Builds"),
         },
         {
             "name": "Tripo Web Staging",
-            "subtitle": "Staged Batches for Web Studio (3000 Cr)",
+            "subtitle": "Staged Batches for Web Studio",
             "icon": "inbox",
             "path": STAGING_DIR,
         },
@@ -200,7 +169,31 @@ def get_bookmarks():
             "path": DOWNLOADS_DIR,
         },
     ]
-    return [c for c in candidates if os.path.exists(c["path"])]
+
+    # Also auto-include any other user-created top-level folder in BASE_DIR
+    known_paths = {os.path.normcase(os.path.abspath(c["path"])) for c in candidates}
+    skip_dirs = {"static", "templates", "__pycache__", "_originals_raw", "heic"}
+    try:
+        for entry in sorted(os.scandir(BASE_DIR), key=lambda e: e.name.lower()):
+            if entry.is_dir() and not entry.name.startswith(".") and entry.name not in skip_dirs:
+                norm_p = os.path.normcase(os.path.abspath(entry.path))
+                if norm_p not in known_paths:
+                    candidates.append({
+                        "name": entry.name,
+                        "subtitle": "Project Folder",
+                        "icon": "folder",
+                        "path": entry.path,
+                    })
+                    known_paths.add(norm_p)
+    except Exception:
+        pass
+
+    result = []
+    for c in candidates:
+        if os.path.exists(c["path"]):
+            c["has_subdirs"] = _folder_has_subdirs(c["path"])
+            result.append(c)
+    return result
 
 
 def convert_single_file_to_jpg(src_path, archive_original=True):
@@ -306,6 +299,7 @@ def api_browse():
                 "name": entry.name,
                 "path": entry.path,
                 "image_count": img_count,
+                "has_subdirs": _folder_has_subdirs(entry.path),
             })
         elif entry.is_file():
             ext = os.path.splitext(entry.name)[1].lower()

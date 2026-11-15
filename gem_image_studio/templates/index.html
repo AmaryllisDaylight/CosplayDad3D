@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/static/style.css" />
+  <link rel="stylesheet" href="/static/style.css?v=3" />
 </head>
 <body>
   <!-- Ambient Background Orbs for Glassmorphism Depth -->
@@ -88,25 +88,15 @@
 
   <!-- Main 3-Column Glass Workspace -->
   <main class="workspace-grid">
-    <!-- Left Column: Bookmarks & Subfolders -->
+    <!-- Left Column: Full-Height Expandable Folder Tree -->
     <aside class="sidebar-left glass-panel">
-      <div class="panel-section">
+      <div class="panel-section folder-tree-section">
         <div class="section-header">
-          <h3>PROJECT FOLDERS</h3>
-          <span class="section-hint">Quick Jump</span>
+          <h3>FOLDERS</h3>
+          <span class="section-hint">Click to Expand</span>
         </div>
         <div id="bookmarks-list" class="bookmarks-list">
-          <!-- Populated dynamically -->
-        </div>
-      </div>
-
-      <div class="panel-section subfolders-section">
-        <div class="section-header">
-          <h3>SUBFOLDERS</h3>
-          <span id="subfolder-count" class="count-pill">0</span>
-        </div>
-        <div id="subfolders-list" class="subfolders-list">
-          <!-- Populated dynamically -->
+          <!-- Populated dynamically as a single expandable folder tree -->
         </div>
       </div>
 
@@ -444,6 +434,6 @@
   <!-- Toast Notification Container -->
   <div id="toast-container" class="toast-container"></div>
 
-  <script src="/static/app.js"></script>
+  <script src="/static/app.js?v=3"></script>
 </body>
 </html>

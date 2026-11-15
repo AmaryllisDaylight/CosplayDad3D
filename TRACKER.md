@@ -1,7 +1,7 @@
 # @cosplaydad3d Master Content Tracker
 
-> **Last Updated**: `2026-11-14 22:30`  
-> **Ready Queue**: `15` batches | **Posted Archive**: `0` batches | **MakerWorld 3D Models**: `28` projects | **Inbox Drop**: `2` files | **JPG/Video Originals Backup**: `87` files (Zero `.HEIC` policy active)
+> **Last Updated**: `2026-11-14 23:16`  
+> **Ready Queue**: `15` batches | **Posted Archive**: `0` batches | **MakerWorld 3D Models**: `29` projects | **Inbox Drop**: `2` files | **JPG/Video Originals Backup**: `87` files (Zero `.HEIC` policy active)
 
 ## Quick Commands (in Antigravity)
 - **`do it`** *(or **`process inbox`**)* — Scan `01_Inbox_Drop/`, convert any `.HEIC` to `.jpg` & delete the `.HEIC`, resize any videos (`ffmpeg` 4:5 or 9:16), auto-route `.stl` (`>500k` Tripo vs `<=500k` Final) / `.blend` / `.3mf` files, sort AI paint/finish concepts, and refresh the dashboard.
@@ -64,6 +64,7 @@
 | `MW_26_EmberCore_Staff_Tube_13_Counter_Helix_Lattice` | Modular LED Filigree Staff Shaft #13: Counter-Helix Spiral Lattice Tube [EmberCore Armory] | 0 | 1 | 1 | 1 | **1** | **0** | **1** |
 | `MW_27_EmberCore_Staff_Tube_16_Braided_Helix_Rope` | Modular LED Filigree Staff Shaft #16: Braided Helix Rope Openwork Tube [EmberCore Armory] | 0 | 1 | 1 | 1 | **1** | **0** | **1** |
 | `MW_28_EmberCore_Fantasy_War_Hammer` | Demonic Horned Skull Runic War Hammer / Battle Maul - Cosplay Prop [EmberCore Armory] | 0 | 0 | 1 | 1 | **1** | **0** | **1** |
+| `MW_29_EmberCore_Ornate_Filigree_Staff` | Celestial Sun, Moon & Star Astrolabe Mage Staff / Arcane Scepter [EmberCore Armory] | 0 | 0 | 1 | 1 | **1** | **0** | **1** |
 
 ---
 

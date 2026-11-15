@@ -1,7 +1,7 @@
 # @cosplaydad3d Master Content Tracker
 
-> **Last Updated**: `2026-11-14 00:17`  
-> **Ready Queue**: `15` batches | **Posted Archive**: `0` batches | **MakerWorld 3D Models**: `19` projects | **Inbox Drop**: `2` files | **JPG/Video Originals Backup**: `87` files (Zero `.HEIC` policy active)
+> **Last Updated**: `2026-11-14 21:35`  
+> **Ready Queue**: `15` batches | **Posted Archive**: `0` batches | **MakerWorld 3D Models**: `27` projects | **Inbox Drop**: `2` files | **JPG/Video Originals Backup**: `87` files (Zero `.HEIC` policy active)
 
 ## Quick Commands (in Antigravity)
 - **`do it`** *(or **`process inbox`**)* — Scan `01_Inbox_Drop/`, convert any `.HEIC` to `.jpg` & delete the `.HEIC`, resize any videos (`ffmpeg` 4:5 or 9:16), auto-route `.stl` (`>500k` Tripo vs `<=500k` Final) / `.blend` / `.3mf` files, sort AI paint/finish concepts, and refresh the dashboard.
@@ -55,6 +55,14 @@
 | `MW_17_EmberCore_Fantasy_Dagger_Variant_C` | Arcane Filigree Ritual Dagger Variant C [EmberCore Armory] | 0 | 0 | 1 | 1 | **1** | **0** | **1** |
 | `MW_18_Christmas_Ornamental_Ball` | Intricate Filigree Christmas Tree Bauble / Holiday Ornamental Ball | 0 | 0 | 1 | 1 | **1** | **0** | **1** |
 | `MW_19_Cat_Butt_Christmas_Ornament_Bauble` | Funny Cat Butt Lattice Christmas Tree Bauble / Holiday Ornament | 0 | 0 | 1 | 1 | **1** | **0** | **1** |
+| `MW_20_EmberCore_Staff_Tube_01_Triple_Chevron` | Modular LED Filigree Staff Shaft #01: Triple-Chevron Openwork Tube [EmberCore Armory] | 0 | 1 | 1 | 1 | **1** | **0** | **1** |
+| `MW_21_EmberCore_Staff_Tube_05_Quad_Tier_Scales` | Modular LED Filigree Staff Shaft #05: Quad-Tier Armored Dragon Scales Tube [EmberCore Armory] | 0 | 1 | 1 | 1 | **1** | **0** | **1** |
+| `MW_22_EmberCore_Staff_Tube_07_Scalloped_Bands` | Modular LED Filigree Staff Shaft #07: Scalloped Filigree Bands Tube [EmberCore Armory] | 0 | 1 | 1 | 1 | **1** | **0** | **1** |
+| `MW_23_EmberCore_Staff_Tube_08_Dual_Spine` | Modular LED Filigree Staff Shaft #08: Dual-Spine Gothic Ribbed Cage Tube [EmberCore Armory] | 0 | 1 | 1 | 1 | **1** | **0** | **1** |
+| `MW_24_EmberCore_Staff_Tube_09_Flame_Chevron` | Modular LED Filigree Staff Shaft #09: Flame-Chevron Openwork Tube [EmberCore Armory] | 0 | 1 | 1 | 1 | **1** | **0** | **1** |
+| `MW_25_EmberCore_Staff_Tube_10_Interlocking_Lattice` | Modular LED Filigree Staff Shaft #10: Interlocking Diamond Lattice Tube [EmberCore Armory] | 0 | 1 | 1 | 1 | **1** | **0** | **1** |
+| `MW_26_EmberCore_Staff_Tube_13_Counter_Helix_Lattice` | Modular LED Filigree Staff Shaft #13: Counter-Helix Spiral Lattice Tube [EmberCore Armory] | 0 | 1 | 1 | 1 | **1** | **0** | **1** |
+| `MW_27_EmberCore_Staff_Tube_16_Braided_Helix_Rope` | Modular LED Filigree Staff Shaft #16: Braided Helix Rope Openwork Tube [EmberCore Armory] | 0 | 1 | 1 | 1 | **1** | **0** | **1** |
 
 ---
 
